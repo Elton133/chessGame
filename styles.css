@@ -13,6 +13,20 @@ body {
   grid-template-columns: repeat(8, 50px);
   grid-template-rows: repeat(8, 50px);
   gap: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border: 4px solid #202020;
+  cursor: pointer;
+  transform: scale(10) rotate(0deg);
+  animation: zoomOut 2s ease forwards;
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(10) rotate(0deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
 }
 
 .square {
@@ -25,6 +39,7 @@ body {
 
 .white {
   background-color: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 1);
 }
 
 .black {
@@ -33,5 +48,49 @@ body {
 }
 
 .piece {
-  font-size: 24px;
+  font-size: 36px;
+  background: linear-gradient(145deg, #ffffff, #b0b0b0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 
+    2px 2px 0px #000, 
+    4px 4px 0px #66666600,
+    6px 6px 0px #aaaaaa00,
+    8px 8px 0px rgba(0, 0, 0, 0);
+  transform: rotateX(20deg) rotateY(20deg);
+  transition: transform 0.3s ease;
+}
+.piece:hover{
+  transform: scale(1.1);
+  transition: all 0.3s;
+  transform: rotateX(0deg) rotateY(0deg);
+}
+.hidden{
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition :  all 1s;
+}
+.hidden1{
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(-100%);
+  transition :  all 2s;
+}
+.hidden2{
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(100%);
+  transition :  all 1s;
+}
+.hidden3{
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(100%);
+  transition :  all 1s;
+}
+.show, .show1, .show2, .show3{
+opacity:1;
+filter: blur(0);
+transform: translateX(0);
 }
